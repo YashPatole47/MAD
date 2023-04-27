@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(TabBarDemo());
+}
+
+class TabBarDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.image)),
+                Tab(icon: Icon(Icons.camera_alt)),
+              ],
+            ),
+            title: Text('Nature'),
+            backgroundColor: Colors.blue,
+          ),
+          body: TabBarView(
+            children: [
+              Image.network(
+                'https://picsum.photos/id/1015/400/400',
+                height: 400,
+                width: 400,
+              ),
+              Image.network(
+                'https://picsum.photos/id/1018/400/400',
+                height: 400,
+                width: 400,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
